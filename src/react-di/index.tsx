@@ -1,8 +1,10 @@
 import { useContext, createContext, useMemo } from "react";
 
 let DIContext: any;
+let globalContainer: any;
 
 export function createDIContainer<T>(container: T) {
+  globalContainer = container;
   DIContext = createContext(container);
 
   return ({ children }: any) => (
@@ -10,8 +12,13 @@ export function createDIContainer<T>(container: T) {
   );
 }
 
-export function useDI<T>(key: keyof T) {
+export function useInject<T>(key: keyof T) {
   // @ts-ignore
   const container = useContext<T>(DIContext);
   return useMemo(() => container[key], [container, key]);
+}
+
+export function inject<T>(key: keyof T) {
+  // @ts-ignore
+  return globalContainer[key];
 }
