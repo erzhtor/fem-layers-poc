@@ -1,0 +1,52 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  height: 80vh;
+}
+
+.Grid {
+  display: grid;
+  /* grid-template-columns: 1fr 1fr 1fr; */
+  /* grid-template-rows: 500px 1fr; */
+  grid-template-areas:
+    "navbar navbar navbar"
+    "sidebar main main"
+    "sidebar left right"
+    "footer footer footer";
+}
+
+section {
+  border: 2px dashed black;
+  flex: 1;
+  padding: 8px;
+  margin: 8px;
+  background: lightgrey;
+}
+
+.Navbar {
+  grid-area: navbar;
+  height: 40px;
+}
+
+.Sidebar {
+  grid-area: sidebar;
+}
+
+.Right {
+  grid-area: right;
+  height: 200px;
+}
+
+.Left {
+  grid-area: left;
+}
+
+.Main {
+  grid-area: main;
+  height: 250px;
+}
+
+.Footer {
+  grid-area: footer;
+  height: 120px;
+}
