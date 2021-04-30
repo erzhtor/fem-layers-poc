@@ -4,15 +4,22 @@ import { createDIContainer } from "./react-di";
 import { IDIContainer } from "./types";
 import App from "./App";
 
-const DIContainer = createDIContainer<IDIContainer>({
-  log: console.log,
+const DIUtilityContainer = createDIContainer<IDIContainer>({
+  log: console.warn,
+  fetch: (url) => "response"
+});
+
+const DIDomainContainer = createDIContainer<IDIContainer>({
+  log: console.warn,
   fetch: (url) => "response"
 });
 
 const rootElement = document.getElementById("root");
 render(
-  <DIContainer>
-    <App />
-  </DIContainer>,
+  <DIUtilityContainer>
+    <DIDomainContainer>
+      <App />
+    </DIDomainContainer>
+  </DIUtilityContainer>,
   rootElement
 );

@@ -1,17 +1,17 @@
 import React from "react";
 import { Example } from "./components";
-import { useDI } from "./react-di";
+import { useInject } from "./react-di";
 import { IDIContainer } from "./types";
 
 import "./styles.css";
 
 export default function App() {
-  const log = useDI<IDIContainer>("log");
+  const log = useInject<IDIContainer>("log");
   log("Inside App component");
 
   return (
     <main className="App">
-      <h1>FEM Layers PoC Example</h1>
+      <p>FEM Layers PoC Example</p>
       <div className="Grid">
         <section className="Navbar">
           <Example>Navbar</Example>
